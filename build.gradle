@@ -19,8 +19,8 @@ repositories {
 }
 
 dependencies {
-	//compile('mysql:mysql-connector-java')
-	compile('org.postgresql:postgresql')
+	compile('mysql:mysql-connector-java')
+	//compile('org.postgresql:postgresql')
 	compileOnly('org.projectlombok:lombok')
 
 	implementation 'org.springframework.boot:spring-boot-starter'
