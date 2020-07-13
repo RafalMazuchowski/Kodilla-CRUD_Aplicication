@@ -32,29 +32,15 @@ public class SimpleEmailService {
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setTo(mail.getMailTo());
         mailMessage.setSubject(mail.getSubject());
-        mailMessage.setText(mail.getSubject());
+        mailMessage.setText(mail.getMessage());
 
 
-        if (mail.getToCc() == null) {
-            LOGGER.info("CC not included.");
-        } else {
-            mailMessage.setCc(mail.getToCc());
-            LOGGER.info("CC included.");
-        }
+//        if (mail.getToCc() == null) {
+//            LOGGER.info("CC not included.");
+//        } else {
+//            mailMessage.setCc(mail.getToCc());
+//            LOGGER.info("CC included.");
+//        }
             return mailMessage;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
