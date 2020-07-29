@@ -32,6 +32,4 @@ public class TrelloFacade {
         trelloValidator.validateCard(trelloCard);
         return trelloService.createTrelloCard(trelloMapper.mapToCardDto(trelloCard));
     }
-
-
 }
