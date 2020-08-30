@@ -83,7 +83,7 @@ public class TaskControllerTest {
         Gson gson = new Gson();
         String jsonContent = gson.toJson(taskDto);
         //When&Then
-        mockMvc.perform(post("/v1/tasks/1").contentType(MediaType.APPLICATION_JSON)
+        mockMvc.perform(post("/v1/tasks").contentType(MediaType.APPLICATION_JSON)
                 .characterEncoding("UTF-8")
                 .content(jsonContent))
                 .andExpect(status().isOk());
@@ -100,11 +100,10 @@ public class TaskControllerTest {
         Gson gson = new Gson();
         String jsonContent = gson.toJson(task);
         //When&Then
-        mockMvc.perform(put("/v1/tasks/1").contentType(MediaType.APPLICATION_JSON)
+        mockMvc.perform(put("/v1/tasks").contentType(MediaType.APPLICATION_JSON)
                 .characterEncoding("UTF-8")
                 .content(jsonContent))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id", is(1)))
                 .andExpect(jsonPath("$.title", is("Task2")))
                 .andExpect(jsonPath("$.content", is("Description2")));
     }
@@ -114,7 +113,7 @@ public class TaskControllerTest {
         //Given
         Task task = new Task(1L, "Test task", "Test description");
         //When & Then
-        mockMvc.perform(delete("/v1/tasks?taskId=1").contentType(MediaType.APPLICATION_JSON))
+        mockMvc.perform(delete("/v1/tasks/1").contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
 }
